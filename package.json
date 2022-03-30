@@ -1,17 +1,24 @@
 {
   "name": "fulu_ui",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env electronMode=dev node --trace-warnings -r @babel/register ./node_modules/webpack/bin/webpack serve --config webpack.config.dev.js --mode=development",
     "build": "cross-env electronMode=production operation=separateCSS node --trace-warnings -r @babel/register ./node_modules/webpack/bin/webpack --config webpack.config.prod.js --color --progress --mode=production",
-    "cjs": "babel src --out-dir lib --ignore 'src/assets' --copy-files"
+    "cjs": "babel src/components --out-dir lib --copy-files"
   },
+  "files": [
+    "lib/**"
+  ],
   "keywords": [],
   "author": "xiexin",
   "license": "ISC",
+  "sideEffects": [
+    "*.css",
+    "*.less"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
